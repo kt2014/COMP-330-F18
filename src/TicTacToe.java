@@ -29,7 +29,7 @@ public class TicTacToe {
         System.out.print("  Player 1 choose a symbol to play with, \"x\" or \"o\"? ");
         char player1Symbol = sc.next().toLowerCase().charAt(0);
         char player2Symbol = (player1Symbol == 'x') ? 'o' : 'x';
-
+        System.out.print("  " + player2Name+ " will play with the '" + ((player1Symbol == 'x') ? 'o' : 'x' )+ "' symbol.");
 
     }
     // a function to reset the board
