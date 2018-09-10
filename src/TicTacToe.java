@@ -18,6 +18,19 @@ public class TicTacToe {
         System.out.println("\nHi, Welcome To The Tic Tac Toe Game!\n");
         showBoard(board);
 
+        // ask the user to enter their name
+        System.out.print("  Please, enter Player 1's name: ");
+        String player1Name = sc.next();
+
+        System.out.print("  Please, enter Player 2's name: ");
+        String player2Name = sc.next();
+
+        // Then ask the first player which symbol (x or o) he/she wants to play.
+        System.out.print("  Player 1 choose a symbol to play with, \"x\" or \"o\"? ");
+        char player1Symbol = sc.next().toLowerCase().charAt(0);
+        char player2Symbol = (player1Symbol == 'x') ? 'o' : 'x';
+
+
     }
     // a function to reset the board
     public static void boardReset(char[][] bd){
@@ -61,5 +74,4 @@ public class TicTacToe {
         }
         System.out.println();
     }
-    }
-
+}
