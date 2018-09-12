@@ -26,12 +26,13 @@ public class TicTacToe {
         String player2Name = sc.next();
 
         // Then ask the first player which symbol (x or o) he/she wants to play.
-        System.out.print("  Player 1 choose a symbol to play with, \"x\" or \"o\"? ");
+        System.out.print("\n  " + player1Name+ ", choose a symbol to play with, \"x\" or \"o\"? ");
         char player1Symbol = sc.next().toLowerCase().charAt(0);
         char player2Symbol = (player1Symbol == 'x') ? 'o' : 'x';
         System.out.print("  " + player2Name+ " will play with the '" + ((player1Symbol == 'x') ? 'o' : 'x' )+ "' symbol.");
 
     }
+
     // a function to reset the board
     public static void boardReset(char[][] bd){
         for (int i=0; i< bd.length; i++)
