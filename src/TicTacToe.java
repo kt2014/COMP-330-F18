@@ -52,7 +52,42 @@ public class TicTacToe {
         // decrement the number of remaining cells
         remainCnt--;
 
+        // Play the game until either one wins.
+        boolean done = false;
+        int winner = -1;   // 0 = the 1st user, 1 = the 2d user, -1 = draw
+
+        while (!done && remainCnt > 0) {
+            // Check if there is a winner and set the winner
+            done = isGameWon(board, turn, player1Symbol, player2Symbol);
+
+            // If there is a winner, the winner is the player who made the last move
+            if (done)
+                winner = turn;
+            else {
+                // Otherwise, find the next turn and play.
+                turn = (turn + 1 ) % 2;
+
+                if (turn == 0)
+                    user1Play(board, player1Symbol);
+                else
+                    user2Play(board, player2Symbol);
+
+                // Show the board after one move, then decrement the remaining count.
+                showBoard(board);
+                remainCnt--;
+            }
+        }
+
+        // Show a message to state if there is a winner
+        if (winner == 0)
+            System.out.println("\nCongratulations, " +player1Name+ "! You won!");
+        else if (winner == 1)
+            System.out.println("\nCongratulations, " +player2Name+ "! You won");
+        else
+            System.out.println("\nThis game is a draw.");
+
     }
+
 
     // a function to reset the board
     public static void boardReset(char[][] bd){
@@ -65,7 +100,9 @@ public class TicTacToe {
     public static void showBoard(char[][] bd) {
         int numRow = bd.length;
         int numCol = bd[0].length;
+
         System.out.println();
+
         // header for columns
         System.out.print("    ");
         for (int i = 0; i < numCol; i++)
@@ -124,5 +161,28 @@ public class TicTacToe {
         }
 
         bd[rowIndex][colIndex] = u2turn;
+    }
+public static boolean isGameWon(char[][] bd, int turn, char u1turn, char u2turn)
+{
+    char symbol;
+    if (turn == 0)
+        symbol = u1turn;
+    else
+        symbol = u2turn;
+
+    int i, j;
+    boolean win = false;
+
+    // First check by row
+    for (i = 0; i < bd.length && !win; i++) {
+        for (j = 0; j < bd[0].length; j++) {
+            if (bd[i][j] != symbol)
+                break;
+        }
+        if (j == bd[0].length)
+            win = true;
+    }
+
+    return win;
     }
 }
