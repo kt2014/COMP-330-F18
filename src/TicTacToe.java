@@ -155,7 +155,7 @@ public class TicTacToe {
         int colIndex = sc.nextInt();
 
         while (bd[rowIndex][colIndex] != ' ') {
-            System.out.print("\n   It looks like this cell is already taken....\nPlease enter a row and a column to play: ");
+            System.out.print("\n  It looks like this cell is already taken....\nPlease enter a row and a column to play: ");
             rowIndex = sc.nextInt();
             colIndex = sc.nextInt();
         }
