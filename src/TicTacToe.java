@@ -192,6 +192,25 @@ public static boolean isGameWon(char[][] bd, int turn, char u1turn, char u2turn)
         if (i == bd.length)
             win = true;
     }
+    // Also check by diagonal
+    if (!win) {
+        for (i = 0; i < bd.length; i++) {
+            if (bd[i][i] != symbol)
+                break;
+        }
+        if (i == bd.length)
+            win = true;
+    }
+
+    // Check by diagonal
+    if (!win) {
+        for (i = 0; i < bd.length; i++) {
+            if (bd[i][bd.length - 1 - i] != symbol)
+                break;
+        }
+        if (i == bd.length)
+            win = true;
+    }
 
     return win;
     }
