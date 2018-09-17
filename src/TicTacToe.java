@@ -183,6 +183,16 @@ public static boolean isGameWon(char[][] bd, int turn, char u1turn, char u2turn)
             win = true;
     }
 
+    // Then check column
+    for (j = 0; j < bd[0].length && !win; j++) {
+        for (i = 0; i < bd.length; i++) {
+            if (bd[i][j] != symbol)
+                break;
+        }
+        if (i == bd.length)
+            win = true;
+    }
+
     return win;
     }
 }
