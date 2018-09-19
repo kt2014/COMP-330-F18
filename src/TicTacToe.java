@@ -214,4 +214,20 @@ public static boolean isGameWon(char[][] bd, int turn, char u1turn, char u2turn)
 
     return win;
     }
+       //ask user to play again
+    public boolean WantplayAgain() {
+        
+        int row, col;
+        char playAgain = 'i';
+                
+        while(playAgain != 'y' || playAgain != 'n') {
+          System.out.println("Do you want to play again? (y/n)"); 
+          char ans = sc.next().charAt(0);
+          if (ans != 'y' && ans != 'Y') {
+      System.out.println("Bye!");
+      System.exit(0);
+    }   
+ } while(true); //loop until user says otherwise
+
+    } 
 }
